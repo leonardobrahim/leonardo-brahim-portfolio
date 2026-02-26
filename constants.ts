@@ -101,7 +101,8 @@ export const PROJECTS_DATA: Project[] = [
     color: "bg-neo-green",
     size: "large",
     link: "https://lumina-store-mu.vercel.app/#/",
-    image: "public/lumina-store.png",
+    image: "/lumina-store.png",
+    //image: "public/lumina-store.png",
   },
   {
     id: 4,
@@ -112,6 +113,7 @@ export const PROJECTS_DATA: Project[] = [
     color: "bg-white",
     size: "large",
     link: "https://rabisco-app.pages.dev/",
-    image: "public/rabisco-app.png",
+    image: "/rabisco-app.png",
+    //image: "public/rabisco-app.png",
   },
 ];

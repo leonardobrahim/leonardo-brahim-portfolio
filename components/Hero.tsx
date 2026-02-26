@@ -7,7 +7,8 @@ import { Download } from "lucide-react";
 
 const Hero: React.FC = () => {
   // Corrigindo o caminho para absoluto para pegar da raiz pública
-  const avatarUrl = "public/avatar.png";
+  const avatarUrl = "/avatar.png";
+  //const avatarUrl = "public/avatar.png";
 
   return (
     <section
