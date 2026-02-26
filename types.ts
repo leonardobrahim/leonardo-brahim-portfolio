@@ -4,7 +4,9 @@ export interface Project {
   description: string;
   tags: string[];
   color: string; // Tailwind bg color class
-  size: 'small' | 'medium' | 'large'; // For Bento Grid
+  size: "small" | "medium" | "large"; // For Bento Grid
+  link?: string;
+  image: string;
 }
 
 export interface Education {
