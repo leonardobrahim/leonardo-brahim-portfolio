@@ -4,6 +4,7 @@ import { PERSONAL_INFO } from "../constants";
 import StickerImage from "./ui/StickerImage";
 import NeoButton from "./ui/NeoButton";
 import { Download } from "lucide-react";
+import curriculoPDF from "../src/assets/leonardo-brahim-curriculo.pdf";
 
 const Hero: React.FC = () => {
   // Corrigindo o caminho para absoluto para pegar da raiz pública
@@ -44,10 +45,19 @@ const Hero: React.FC = () => {
             >
               Ver Projetos
             </NeoButton>
-            <NeoButton variant="secondary" className="flex items-center gap-2">
-              <Download size={18} />
-              Download CV
-            </NeoButton>
+            <a
+              href={curriculoPDF}
+              download="Leonardo_Brahim_Curriculo.pdf"
+              className="no-underline"
+            >
+              <NeoButton
+                variant="secondary"
+                className="flex items-center gap-2"
+              >
+                <Download size={18} />
+                Download CV
+              </NeoButton>
+            </a>
           </div>
         </motion.div>
 
