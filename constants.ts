@@ -98,14 +98,24 @@ export const PROJECTS_DATA: Project[] = [
     description:
       "Plataforma completa de vendas online com carrinho, checkout e painel administrativo.\nDesenvolvido com foco na experiência do usuário e conversão.",
     tags: ["React", "Node.js", "Stripe"],
-    color: "bg-neo-green",
+    color: "bg-gray-300",
     size: "large",
     link: "https://lumina-store-mu.vercel.app/#/",
     image: "/lumina-store.png",
-    //image: "public/lumina-store.png",
   },
   {
-    id: 4,
+    id: 2,
+    title: "Relatório de Gestão SEPLAG",
+    description:
+      "Plataforma governamental para acompanhamento de iniciativas prioritárias de Pernambuco.\nAtuação focada na implementação e testes da funcionalidade de exportação de dados dos relatórios.",
+    tags: ["Web", "Dados", "Governo"],
+    color: "bg-blue-400",
+    size: "large",
+    link: "https://relatoriodegestao.seplag.pe.gov.br/",
+    image: "/relatorio-seplag.png",
+  },
+  {
+    id: 3,
     title: "Rabisco App - Desenvolvimento Pessoal",
     description:
       "Aplicativo de autoaperfeiçoamento com sistema de missões diárias e rastreamento de hábitos.\n O site possui Whitelist. Email: teste@teste.com Senha: teste123",
@@ -114,6 +124,16 @@ export const PROJECTS_DATA: Project[] = [
     size: "large",
     link: "https://rabisco-app.pages.dev/",
     image: "/rabisco-app.png",
-    //image: "public/rabisco-app.png",
+  },
+  {
+    id: 4,
+    title: "Iniciativas PPA 2024-2027",
+    description:
+      "Plataforma para acompanhamento das iniciativas do Plano Plurianual (PPA) do Governo de Pernambuco\nProjeto *EM DESENVOLVIMENTO*.",
+    tags: ["React", "Governo", "Em Dev"],
+    color: "bg-indigo-300",
+    size: "large",
+    link: "",
+    image: "/site-ppa.png",
   },
 ];
