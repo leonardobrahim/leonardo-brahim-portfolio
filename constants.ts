@@ -127,13 +127,13 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: 4,
-    title: "Iniciativas PPA 2024-2027",
+    title: "Study App - Aplicativo de Estudos",
     description:
-      "Plataforma para acompanhamento das iniciativas do Plano Plurianual (PPA) do Governo de Pernambuco\nProjeto *EM DESENVOLVIMENTO*.",
-    tags: ["React", "Governo", "Em Dev"],
+      "Aplicativo de estudos com sistema de flashcards, quizzes e rastreamento de progresso.\nConta teste - Email: portfolio@teste.com - Senha: portfolio123",
+    tags: ["React", "Educação", "Em Dev"],
     color: "bg-indigo-300",
     size: "large",
-    link: "",
-    image: "/site-ppa.png",
+    link: "https://study-platform-r3ymhlxf8-leonardobrahims-projects.vercel.app/",
+    image: "/study-app.png",
   },
 ];
