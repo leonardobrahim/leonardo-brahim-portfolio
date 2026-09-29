@@ -94,17 +94,6 @@ export const LANGUAGES_DATA: Language[] = [
 export const PROJECTS_DATA: Project[] = [
   {
     id: 1,
-    title: "Lumina Store E-commerce",
-    description:
-      "Plataforma completa de vendas online com carrinho, checkout e painel administrativo.\nDesenvolvido com foco na experiência do usuário e conversão.",
-    tags: ["React", "Node.js", "Stripe"],
-    color: "bg-gray-300",
-    size: "large",
-    link: "https://lumina-store-mu.vercel.app/#/",
-    image: "/lumina-store.png",
-  },
-  {
-    id: 2,
     title: "Estúdio de Impressão dengo3Dlab",
     description:
       "Plataforma de vendas de produtos 3D e gerenciamento interno completo.\n*EM DESENVOLVIMENTO*, funcionando com dados mockados.",
@@ -112,7 +101,20 @@ export const PROJECTS_DATA: Project[] = [
     color: "bg-blue-400",
     size: "large",
     link: "https://dengo3dlab.vercel.app/",
+    github: "https://github.com/leonardobrahim/dengo3dlab",
     image: "/dengo3dlab.png",
+  },
+  {
+    id: 2,
+    title: "Study App - Aplicativo de Estudos",
+    description:
+      "Aplicativo de estudos com sistema de flashcards, quizzes e rastreamento de progresso.\nConta teste - Email: portfolio@teste.com - Senha: portfolio123",
+    tags: ["React", "Educação", "Em Dev"],
+    color: "bg-indigo-300",
+    size: "large",
+    link: "https://study-platform-r3ymhlxf8-leonardobrahims-projects.vercel.app/",
+    github: "https://github.com/leonardobrahim/study-platform",
+    image: "/study-app.png",
   },
   {
     id: 3,
@@ -123,17 +125,19 @@ export const PROJECTS_DATA: Project[] = [
     color: "bg-white",
     size: "large",
     link: "https://rabisco-app.pages.dev/",
+    github: "https://github.com/leonardobrahim/rabisco-app",
     image: "/rabisco-app.png",
   },
   {
     id: 4,
-    title: "Study App - Aplicativo de Estudos",
+    title: "Lumina Store E-commerce",
     description:
-      "Aplicativo de estudos com sistema de flashcards, quizzes e rastreamento de progresso.\nConta teste - Email: portfolio@teste.com - Senha: portfolio123",
-    tags: ["React", "Educação", "Em Dev"],
-    color: "bg-indigo-300",
+      "Plataforma completa de vendas online com carrinho, checkout e painel administrativo.\nDesenvolvido com foco na experiência do usuário e conversão.",
+    tags: ["React", "Node.js", "Stripe"],
+    color: "bg-gray-300",
     size: "large",
-    link: "https://study-platform-r3ymhlxf8-leonardobrahims-projects.vercel.app/",
-    image: "/study-app.png",
-  },
+    link: "https://lumina-store-mu.vercel.app/#/",
+    github: "https://github.com/leonardobrahim/lumina-store",
+    image: "/lumina-store.png",
+  }
 ];

@@ -6,6 +6,7 @@ export interface Project {
   color: string; // Tailwind bg color class
   size: "small" | "medium" | "large"; // For Bento Grid
   link?: string;
+  github?: string;
   image: string;
 }
 

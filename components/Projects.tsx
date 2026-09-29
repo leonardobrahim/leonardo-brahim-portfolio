@@ -2,7 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { PROJECTS_DATA } from "../constants";
 import { Project } from "../types";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
+import NeoButton from "./ui/NeoButton";
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   const spanClass =
@@ -13,14 +14,10 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         : "md:col-span-1 md:row-span-1";
 
   return (
-    <motion.a
-      href={project.link || "#"}
-      target={project.link ? "_blank" : "_self"}
-      rel={project.link ? "noopener noreferrer" : ""}
+    <motion.div
       layoutId={`project-${project.id}`}
       whileHover={{ y: -8, transition: { type: "spring", stiffness: 300 } }}
-      // Adicionamos block e cursor-pointer para garantir que funciona como link
-      className={`${spanClass} ${project.color} group relative rounded-xl border-4 border-black shadow-neo overflow-hidden flex flex-col cursor-pointer transition-shadow hover:shadow-neo-lg no-underline block`}
+      className={`${spanClass} ${project.color} group relative rounded-xl border-4 border-black shadow-neo overflow-hidden flex flex-col transition-shadow hover:shadow-neo-lg`}
     >
       {/* Área da Imagem */}
       <div className="w-full h-32 md:h-1/2 min-h-[140px] border-b-4 border-black overflow-hidden relative bg-white">
@@ -34,11 +31,6 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         <div className="absolute top-4 left-4 bg-white text-black border-2 border-black rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide z-10">
           {project.tags[0]}
         </div>
-
-        {/* Ícone de seta flutuante (aparece no hover) */}
-        <div className="absolute top-4 right-4 bg-black text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-          <ArrowUpRight size={20} />
-        </div>
       </div>
 
       {/* Área de Texto */}
@@ -47,12 +39,42 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           <h3 className="text-2xl font-black text-black mb-2 leading-tight">
             {project.title}
           </h3>
-          <p className="text-black/80 font-medium text-sm md:text-base whitespace-pre-line line-clamp-3">
+          <p className="text-black/80 font-medium text-sm md:text-base whitespace-pre-line line-clamp-3 mb-4">
             {project.description}
           </p>
         </div>
+        
+        {/* Botões */}
+        <div className="flex flex-wrap gap-3 mt-auto pt-4">
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="no-underline"
+            >
+              <NeoButton variant="primary" className="flex items-center gap-2 text-sm px-4 py-2">
+                <ArrowUpRight size={18} />
+                Acessar Projeto
+              </NeoButton>
+            </a>
+          )}
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="no-underline"
+            >
+              <NeoButton variant="secondary" className="flex items-center gap-2 text-sm px-4 py-2">
+                <Github size={18} />
+                GitHub
+              </NeoButton>
+            </a>
+          )}
+        </div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 };
 
