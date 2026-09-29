@@ -105,14 +105,14 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: 2,
-    title: "Relatório de Gestão SEPLAG",
+    title: "Estúdio de Impressão dengo3Dlab",
     description:
-      "Plataforma governamental para acompanhamento de iniciativas prioritárias de Pernambuco.\nAtuação focada na implementação e testes da funcionalidade de exportação de dados dos relatórios.",
-    tags: ["Web", "Dados", "Governo"],
+      "Plataforma de vendas de produtos 3D e gerenciamento interno completo.\n*EM DESENVOLVIMENTO*, funcionando com dados mockados.",
+    tags: ["React", "Node.js", "E-commerce"],
     color: "bg-blue-400",
     size: "large",
-    link: "https://relatoriodegestao.seplag.pe.gov.br/",
-    image: "/relatorio-seplag.png",
+    link: "https://dengo3dlab.vercel.app/",
+    image: "/dengo3dlab.png",
   },
   {
     id: 3,
