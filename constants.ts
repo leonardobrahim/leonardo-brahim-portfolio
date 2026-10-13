@@ -40,9 +40,9 @@ export const TECH_STACK = [
 
 export const EDUCATION_DATA: Education[] = [
   {
-    school: "UNEMAT / UFPE",
+    school: "UFPE",
     degree: "Graduação em Ciência da Computação",
-    period: "2021 – Cursando",
+    period: "2023 – Cursando",
   },
   {
     school: "ETE José Alencar Gomes da Silva",
@@ -64,10 +64,10 @@ export const EDUCATION_DATA: Education[] = [
 export const EXPERIENCE_DATA: Experience[] = [
   {
     company: "SEPLAG - Secretaria de Planejamento e Gestão de Pernambuco",
-    role: "Estagiário de Desenvolvimento Web",
-    period: "Maio 2024 - Atualmente",
+    role: "Estagiário de Desenvolvimento de Software",
+    period: "Junho 2024 - Junho 2026",
     description:
-      "Atuação como auxiliar de desenvolvimento web front-end. No início do estágio, também atuei com ferramentas de BI como Power BI e QlikView para análise de dados.",
+      "Atuação como auxiliar de desenvolvimento de software (web e automação). No início do estágio, também atuei com ferramentas de BI como Power BI e QlikView para análise de dados.",
   },
   {
     company: "Projeto de Desenvolvimento da UFPE",
