@@ -34,7 +34,7 @@ export const TECH_STACK = [
   { name: "Git & Github", icon: GitBranch, color: "bg-red-300" },
   { name: "Python", icon: Terminal, color: "bg-green-300" },
   { name: "C / C++ / C#", icon: Code, color: "bg-blue-300" },
-  { name: "Photoshop", icon: Palette, color: "bg-blue-400" },
+  { name: "TypeScript", icon: Code, color: "bg-blue-400" },
   { name: "Hardware", icon: Cpu, color: "bg-gray-300" },
 ];
 
