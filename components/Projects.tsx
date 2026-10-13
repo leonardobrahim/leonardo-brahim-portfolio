@@ -60,17 +60,30 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             </a>
           )}
           {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="no-underline"
-            >
-              <NeoButton variant="secondary" className="flex items-center gap-2 text-sm px-4 py-2">
+            project.id === 1 ? (
+              <NeoButton
+                variant="secondary"
+                disabled
+                whileHover={{ scale: 1 }}
+                whileTap={{ scale: 1 }}
+                className="flex items-center gap-2 text-sm px-4 py-2 opacity-50 grayscale cursor-not-allowed"
+              >
                 <Github size={18} />
                 GitHub
               </NeoButton>
-            </a>
+            ) : (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="no-underline"
+              >
+                <NeoButton variant="secondary" className="flex items-center gap-2 text-sm px-4 py-2">
+                  <Github size={18} />
+                  GitHub
+                </NeoButton>
+              </a>
+            )
           )}
         </div>
       </div>

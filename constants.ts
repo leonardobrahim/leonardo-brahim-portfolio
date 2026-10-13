@@ -112,7 +112,7 @@ export const PROJECTS_DATA: Project[] = [
     tags: ["React", "Educação", "Em Dev"],
     color: "bg-indigo-300",
     size: "large",
-    link: "https://study-platform-r3ymhlxf8-leonardobrahims-projects.vercel.app/",
+    link: "https://study-platform-wheat.vercel.app/",
     github: "https://github.com/leonardobrahim/study-platform",
     image: "/study-app.png",
   },
@@ -139,5 +139,5 @@ export const PROJECTS_DATA: Project[] = [
     link: "https://lumina-store-mu.vercel.app/#/",
     github: "https://github.com/leonardobrahim/lumina-store",
     image: "/lumina-store.png",
-  }
+  },
 ];
