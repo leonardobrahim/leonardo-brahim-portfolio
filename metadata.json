@@ -1,5 +1,5 @@
 {
   "name": "Leonardo Brahim Portfolio",
-  "description": "A Neo-Brutalist, cartoon-inspired portfolio website for Leonardo Brahim Tavares built with React, Tailwind CSS, and Framer Motion.",
+  "description": "Portfólio pessoal de Leonardo Brahim com estética dark-first inspirada no Raycast (obsidian, glassmorphism, glow sutil e Command Palette ⌘K), construído com React, TypeScript, Tailwind CSS v4 e Framer Motion.",
   "requestFramePermissions": []
 }

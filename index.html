@@ -1,65 +1,32 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leonardo Brahim | Frontend Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/png" href="public/favicon.ico" />
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Space Grotesk", "sans-serif"],
-            },
-            colors: {
-              "cartoon-blue": "#3B82F6", // Vibrant blue matching the reference
-              "cartoon-dark": "#1e1b4b",
-              "neo-yellow": "#FEF08A",
-              "neo-pink": "#F472B6",
-              "neo-green": "#4ADE80",
-            },
-            boxShadow: {
-              neo: "5px 5px 0px 0px rgba(0,0,0,1)",
-              "neo-sm": "3px 3px 0px 0px rgba(0,0,0,1)",
-              "neo-lg": "8px 8px 0px 0px rgba(0,0,0,1)",
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      /* Smooth scrolling for anchor links */
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 120px; /* Compensa a altura da navbar fixa */
-      }
-      body {
-        overflow-x: hidden;
-      }
-    </style>
-    <script type="importmap">
-      {
-        "imports": {
-          "react": "https://esm.sh/react@^19.2.4",
-          "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-          "react/": "https://esm.sh/react@^19.2.4/",
-          "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-          "framer-motion": "https://esm.sh/framer-motion@^12.29.2"
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+<html lang="pt-BR" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leonardo Brahim: Desenvolvimento Front-end & Análise de Dados</title>
+  <meta name="description"
+    content="Portfólio de Leonardo Brahim. Graduando em Ciência da Computação na UFPE com experiência em React, TypeScript, React Native, Python (FastAPI), PostgreSQL e BI (Power BI & QlikView)." />
+  <meta name="theme-color" content="#07080a" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Leonardo Brahim — Desenvolvimento Front-end & Análise de Dados" />
+  <meta property="og:description"
+    content="Desenvolvimento web front-end, aplicações full-stack e Business Intelligence. Recife, PE." />
+  <meta property="og:url" content="https://leonardo-brahim-portfolio.vercel.app/" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>

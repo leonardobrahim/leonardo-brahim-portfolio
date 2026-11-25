@@ -1,77 +1,146 @@
 import React from 'react';
-import { EDUCATION_DATA, EXPERIENCE_DATA, LANGUAGES_DATA } from '../constants';
+import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap, Globe } from 'lucide-react';
+import {
+  Education,
+  Experience as ExperienceType,
+  Language,
+  LocalizedContent,
+} from '../types';
 
-const Experience: React.FC = () => {
+interface ExperienceProps {
+  experience: ExperienceType[];
+  education: Education[];
+  languages: Language[];
+  copy: LocalizedContent['experienceSection'];
+}
+
+const Experience: React.FC<ExperienceProps> = ({
+  experience,
+  education,
+  languages,
+  copy,
+}) => {
   return (
     <section id="experience" className="py-20 px-4">
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
-        
-        {/* Experience Column */}
-        <div className="space-y-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-neo-pink p-3 border-2 border-black rounded-lg shadow-neo-sm">
-              <Briefcase className="text-white" size={24} />
-            </div>
-            <h3 className="text-3xl font-black text-white drop-shadow-[2px_2px_0_#000]">Experiência</h3>
-          </div>
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-10">
+          <p className="text-xs font-mono uppercase tracking-widest text-[#ff6363] mb-2">
+            {copy.eyebrow}
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
+            {copy.title}
+          </h2>
+        </div>
 
-          <div className="space-y-6">
-            {EXPERIENCE_DATA.map((job, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 p-6 rounded-xl border-4 border-black shadow-neo transition-transform hover:-translate-y-1">
-                <span className="inline-block bg-cartoon-blue text-white px-3 py-1 text-xs font-bold rounded-full border-2 border-black mb-3">
-                  {job.period}
-                </span>
-                <h4 className="text-xl font-bold dark:text-white">{job.role}</h4>
-                <p className="text-sm font-bold text-gray-500 mb-2 uppercase tracking-wide">{job.company}</p>
-                <p className="text-gray-700 dark:text-gray-300">{job.description}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Languages Section - Added below Experience to balance columns */}
-          <div className="pt-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="bg-cartoon-blue p-3 border-2 border-black rounded-lg shadow-neo-sm">
-                <Globe className="text-white" size={24} />
-              </div>
-              <h3 className="text-3xl font-black text-white drop-shadow-[2px_2px_0_#000]">Idiomas</h3>
+        <div className="grid lg:grid-cols-12 gap-8">
+          {/* Experiência Profissional */}
+          <div className="lg:col-span-7 space-y-5">
+            <div className="flex items-center gap-2.5 text-sm font-medium text-[#f4f4f6]">
+              <span className="w-7 h-7 rounded-lg bg-[#ff6363]/15 border border-[#ff6363]/30 flex items-center justify-center text-[#ff6363]">
+                <Briefcase className="w-3.5 h-3.5" />
+              </span>
+              <span>{copy.experienceHeading}</span>
             </div>
+
             <div className="space-y-4">
-              {LANGUAGES_DATA.map((lang, idx) => (
-                <div key={idx} className="bg-white dark:bg-gray-800 p-4 rounded-xl border-4 border-black shadow-neo flex justify-between items-center">
-                  <span className="font-bold text-lg dark:text-white">{lang.language}</span>
-                  <span className="bg-neo-yellow text-black text-xs font-bold px-3 py-1 border-2 border-black rounded-full uppercase">
-                    {lang.level}
-                  </span>
-                </div>
+              {experience.map((job) => (
+                <motion.div
+                  key={`${job.company}-${job.period}`}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3 }}
+                  className="raycast-card raycast-card-hover rounded-xl p-6 space-y-4"
+                >
+                  <div className="flex flex-wrap items-start justify-between gap-2">
+                    <div>
+                      <h3 className="text-lg font-semibold text-white">
+                        {job.role}
+                      </h3>
+                      <p className="text-sm text-[#cdcdcd] mt-0.5">
+                        {job.company}
+                      </p>
+                    </div>
+                    <span className="px-2.5 py-1 rounded-md text-xs font-mono text-[#ff6363] bg-[#ff6363]/10 border border-[#ff6363]/25 shrink-0">
+                      {job.period}
+                    </span>
+                  </div>
+
+                  <ul className="space-y-2 text-sm text-[#9c9c9d] leading-relaxed">
+                    {job.highlights.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2.5">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-white/30 shrink-0" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Education Column */}
-        <div className="space-y-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-neo-green p-3 border-2 border-black rounded-lg shadow-neo-sm">
-              <GraduationCap className="text-black" size={24} />
-            </div>
-            <h3 className="text-3xl font-black text-white drop-shadow-[2px_2px_0_#000]">Educação</h3>
-          </div>
-
-          <div className="space-y-6">
-            {EDUCATION_DATA.map((edu, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 p-6 rounded-xl border-4 border-black shadow-neo transition-transform hover:-translate-y-1">
-                 <span className="inline-block bg-neo-yellow text-black px-3 py-1 text-xs font-bold rounded-full border-2 border-black mb-3">
-                  {edu.period}
+          {/* Formação & Idiomas */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2.5 text-sm font-medium text-[#f4f4f6]">
+                <span className="w-7 h-7 rounded-lg bg-[#56c2ff]/15 border border-[#56c2ff]/30 flex items-center justify-center text-[#56c2ff]">
+                  <GraduationCap className="w-3.5 h-3.5" />
                 </span>
-                <h4 className="text-xl font-bold dark:text-white">{edu.degree}</h4>
-                <p className="text-gray-600 dark:text-gray-300 font-medium">{edu.school}</p>
+                <span>{copy.educationHeading}</span>
               </div>
-            ))}
+
+              <div className="space-y-3">
+                {education.map((edu) => (
+                  <motion.div
+                    key={edu.degree}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3 }}
+                    className="raycast-card raycast-card-hover rounded-xl p-5 space-y-2"
+                  >
+                    <span className="inline-block px-2 py-0.5 rounded text-[11px] font-mono text-[#56c2ff] bg-[#56c2ff]/10 border border-[#56c2ff]/25">
+                      {edu.period}
+                    </span>
+                    <h3 className="text-base font-semibold text-white">
+                      {edu.degree}
+                    </h3>
+                    <p className="text-sm text-[#cdcdcd]">{edu.school}</p>
+                    {edu.details && (
+                      <p className="text-xs text-[#71717a]">{edu.details}</p>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex items-center gap-2.5 text-sm font-medium text-[#f4f4f6]">
+                <span className="w-7 h-7 rounded-lg bg-emerald-400/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400">
+                  <Globe className="w-3.5 h-3.5" />
+                </span>
+                <span>{copy.languagesHeading}</span>
+              </div>
+
+              <div className="raycast-card rounded-xl divide-y divide-white/[0.07]">
+                {languages.map((lang) => (
+                  <div
+                    key={lang.language}
+                    className="px-5 py-3.5 flex items-center justify-between"
+                  >
+                    <span className="text-sm font-medium text-[#f4f4f6]">
+                      {lang.language}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-md text-xs font-mono text-[#cdcdcd] bg-white/[0.05] border border-white/[0.08]">
+                      {lang.level}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );

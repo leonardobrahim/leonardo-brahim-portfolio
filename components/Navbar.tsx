@@ -1,106 +1,149 @@
 import React, { useState } from 'react';
-import { Menu, X, Moon, Sun } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import NeoButton from './ui/NeoButton';
+import { Menu, X, Download } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Locale, LocalizedContent } from '../types';
+import RaycastButton from './ui/RaycastButton';
+import curriculoPDF from '../src/assets/leonardo-brahim-curriculo.pdf';
 
 interface NavbarProps {
-  isDark: boolean;
-  toggleTheme: () => void;
+  locale: Locale;
+  onChangeLocale: (locale: Locale) => void;
+  copy: LocalizedContent['nav'];
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
+const Navbar: React.FC<NavbarProps> = ({ locale, onChangeLocale, copy }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: 'Sobre', href: '#home' },
-    { name: 'Tech Stack', href: '#about' },
-    { name: 'Projetos', href: '#projects' },
-    { name: 'Experiência', href: '#experience' },
-    { name: 'Contato', href: '#contact' },
+    { name: copy.about, href: '#home' },
+    { name: copy.projects, href: '#projects' },
+    { name: copy.experience, href: '#experience' },
+    { name: copy.stack, href: '#stack' },
+    { name: copy.contact, href: '#contact' },
   ];
 
-  const handleContactClick = () => {
-    document.getElementById('contact')?.scrollIntoView();
-    setIsOpen(false);
-  };
+  const LanguageSwitch = () => (
+    <div
+      role="group"
+      aria-label="Selecionar idioma / Select language"
+      className="inline-flex items-center p-0.5 rounded-lg bg-white/[0.04] border border-white/[0.08]"
+    >
+      {(['pt', 'en'] as Locale[]).map((lang) => {
+        const active = locale === lang;
+        return (
+          <button
+            key={lang}
+            type="button"
+            onClick={() => onChangeLocale(lang)}
+            aria-pressed={active}
+            className={`px-2 py-1 rounded-md text-[11px] font-mono uppercase transition-colors cursor-pointer ${
+              active
+                ? 'bg-white/[0.12] text-white font-semibold shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]'
+                : 'text-[#9c9c9d] hover:text-white'
+            }`}
+          >
+            {lang}
+          </button>
+        );
+      })}
+    </div>
+  );
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-4 py-4">
-      <div className="max-w-6xl mx-auto bg-white/90 dark:bg-black/90 backdrop-blur-md border-2 border-black rounded-xl shadow-neo-sm p-4 flex justify-between items-center">
-        
-        {/* Logo */}
-        <a href="#" className="text-2xl font-black uppercase tracking-tighter dark:text-white">
-          LB<span className="text-cartoon-blue">.</span>
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+      <nav
+        aria-label="Main navigation"
+        className="max-w-5xl mx-auto rounded-xl border border-white/[0.09] bg-[#0d0e11]/80 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)] px-4 py-2.5 flex items-center justify-between gap-4"
+      >
+        {/* Brand */}
+        <a
+          href="#home"
+          className="text-sm font-semibold tracking-tight text-[#f4f4f6] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff6363]/70 rounded-md px-1 py-0.5"
+        >
+          Leonardo Brahim
         </a>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
-            <a 
-              key={item.name} 
+            <a
+              key={item.href}
               href={item.href}
-              className="font-bold hover:text-cartoon-blue dark:text-white dark:hover:text-neo-yellow transition-colors"
+              className="text-[13px] font-medium text-[#9c9c9d] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff6363]/70 rounded px-1 py-0.5"
             >
               {item.name}
             </a>
           ))}
-          <button 
-            onClick={toggleTheme} 
-            className="p-2 border-2 border-black rounded-full hover:bg-gray-100 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors"
-            aria-label="Toggle Dark Mode"
-          >
-            {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
-          <NeoButton 
-            variant="sticker" 
-            className="!py-1 !px-4 !text-sm !shadow-neo-sm"
-            onClick={handleContactClick}
-          >
-            Fale Comigo
-          </NeoButton>
         </div>
 
-        {/* Mobile Toggle */}
-        <div className="md:hidden flex items-center gap-4">
-          <button onClick={toggleTheme} className="p-2 border-2 border-black rounded-md bg-white text-black">
-             {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
-          <button onClick={() => setIsOpen(!isOpen)} className="p-2 border-2 border-black rounded-md bg-neo-yellow text-black">
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        {/* Desktop Actions */}
+        <div className="hidden md:flex items-center gap-3">
+          <LanguageSwitch />
+
+          <a
+            href={curriculoPDF}
+            download="Leonardo_Brahim_Curriculo.pdf"
+            className="no-underline"
+          >
+            <RaycastButton variant="primary" size="sm">
+              <Download className="w-3.5 h-3.5" />
+              {copy.cvButton}
+            </RaycastButton>
+          </a>
+        </div>
+
+        {/* Mobile Controls */}
+        <div className="flex md:hidden items-center gap-2">
+          <LanguageSwitch />
+          <button
+            type="button"
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-label={isOpen ? copy.closeMenu : copy.openMenu}
+            aria-expanded={isOpen}
+            className="p-2 rounded-lg bg-white/[0.05] border border-white/[0.1] text-[#f4f4f6] hover:bg-white/[0.1] cursor-pointer"
+          >
+            {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-24 left-4 right-4 bg-white border-2 border-black shadow-neo rounded-xl p-6 flex flex-col gap-4 md:hidden"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.15 }}
+            className="md:hidden max-w-5xl mx-auto mt-2 rounded-xl border border-white/[0.1] bg-[#101114]/95 backdrop-blur-2xl p-4 shadow-[0_24px_48px_rgba(0,0,0,0.8)] flex flex-col gap-1"
           >
             {navItems.map((item) => (
-              <a 
-                key={item.name} 
+              <a
+                key={item.href}
                 href={item.href}
-                className="text-lg font-bold text-center py-2 hover:bg-gray-100 rounded-lg"
                 onClick={() => setIsOpen(false)}
+                className="px-3 py-2.5 rounded-lg text-sm font-medium text-[#cdcdcd] hover:text-white hover:bg-white/[0.06] transition-colors"
               >
                 {item.name}
               </a>
             ))}
-            <NeoButton 
-              variant="sticker" 
-              className="w-full justify-center"
-              onClick={handleContactClick}
-            >
-              Fale Comigo
-            </NeoButton>
+            <div className="pt-2 mt-2 border-t border-white/[0.08]">
+              <a
+                href={curriculoPDF}
+                download="Leonardo_Brahim_Curriculo.pdf"
+                onClick={() => setIsOpen(false)}
+                className="no-underline block"
+              >
+                <RaycastButton variant="primary" className="w-full justify-center">
+                  <Download className="w-4 h-4" />
+                  {copy.cvDownloadLabel}
+                </RaycastButton>
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 };
 

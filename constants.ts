@@ -1,143 +1,555 @@
-import {
-  Project,
-  Education,
-  Experience,
-  PersonalInfo,
-  Language,
-} from "./types";
-import {
-  Code,
-  Layout,
-  Palette,
-  Terminal,
-  Box,
-  Smartphone,
-  Cpu,
-  GitBranch,
-} from "lucide-react";
+import { Locale, LocalizedContent, PersonalShared } from "./types";
 
-export const PERSONAL_INFO: PersonalInfo = {
-  name: "Leonardo Brahim Tavares",
-  role: "Estagiário de TI | Desenvolvedor Frontend",
-  bio: "Desenvolvedor focado no Front-end, com paixão por criar interfaces modernas, intuitivas e responsivas. Também possuo conhecimentos sólidos no Back-end, o que me permite compreender o ciclo completo de desenvolvimento e entregar soluções robustas e integradas.",
+export const PERSONAL_SHARED: PersonalShared = {
+  name: "Leonardo Brahim",
   email: "contato.leonardobrahim@gmail.com",
-  phone: "+55 81 996201937",
-  location: "Pernambuco, Brasil",
-  github: "github.com/leonardobrahim",
+  phone: "+55 81 99620 1937",
+  phoneHref: "tel:+5581996201937",
+  portfolio: "https://leonardo-brahim-portfolio.vercel.app",
+  github: "https://github.com/leonardobrahim",
+  linkedin: "https://linkedin.com/in/leonardobrahim",
 };
 
-export const TECH_STACK = [
-  { name: "HTML5 & CSS3", icon: Layout, color: "bg-orange-300" },
-  { name: "JavaScript", icon: Code, color: "bg-yellow-300" },
-  { name: "React", icon: Box, color: "bg-cyan-300" },
-  { name: "React Native", icon: Smartphone, color: "bg-indigo-300" },
-  { name: "Git & Github", icon: GitBranch, color: "bg-red-300" },
-  { name: "Python", icon: Terminal, color: "bg-green-300" },
-  { name: "C / C++ / C#", icon: Code, color: "bg-blue-300" },
-  { name: "TypeScript", icon: Code, color: "bg-blue-400" },
-  { name: "Hardware", icon: Cpu, color: "bg-gray-300" },
-];
+export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
+  pt: {
+    metaTitle: "Leonardo Brahim — Desenvolvimento Front-end & Análise de Dados",
+    nav: {
+      about: "Sobre",
+      projects: "Projetos",
+      experience: "Experiência",
+      stack: "Stack",
+      contact: "Contato",
+      cvButton: "Currículo",
+      cvDownloadLabel: "Baixar Currículo (PDF)",
+      openMenu: "Abrir menu",
+      closeMenu: "Fechar menu",
+    },
+    hero: {
+      headline: "Desenvolvimento Front-end & Análise de Dados",
+      availability: "Estágio e Trainee em Tecnologia · Recife, PE",
+      bio: "Graduando em Ciência da Computação pela UFPE (previsão: 2º sem. 2028) com 2 anos de experiência no setor público (SEPLAG-PE), atuando em desenvolvimento web front-end e análise de dados com Business Intelligence (Power BI e QlikView). Vivência prática em aplicações web, mobile e APIs conectando software e estratégia.",
+      ctaProjects: "Ver Projetos",
+      ctaCv: "Download CV",
+      copyEmailAria: "Copiar e-mail",
+      emailCopiedToast: "E-mail copiado!",
+      widget: {
+        title: "Perfil · Front-end & BI",
+        badge: "Recife, PE",
+        kpis: [
+          {
+            value: "2 anos",
+            label: "SEPLAG-PE",
+            detail: "Front-end & BI",
+          },
+          {
+            value: "4",
+            label: "Projetos Web",
+            detail: "React, APIs & UI",
+          },
+          {
+            value: "2028",
+            label: "UFPE · Comp.",
+            detail: "Previsão 2º sem.",
+          },
+          {
+            value: "Avançado",
+            label: "Inglês",
+            detail: "PT Nativo · ES Básico",
+          },
+        ],
+        chartTitle: "Distribuição da Stack",
+        chartSubtitle: "Tecnologias por área",
+        statusText: "Aberto a oportunidades",
+        focusTag: "React · TS · BI",
+      },
+    },
+    projectsSection: {
+      eyebrow: "Portfólio Selecionado",
+      title: "Projetos em Destaque",
+      subtitle:
+        "Aplicações web full-stack, sistemas com estado global e interfaces orientadas à usabilidade e visualização de dados.",
+      featuredBadge: "Destaque",
+      accessButton: "Acessar Projeto",
+      codeButton: "Código",
+      privateRepoLabel: "Repo privado",
+      detailsButton: "Detalhes",
+      highlightsTitle: "Destaques técnicos",
+      demoTitle: "Credenciais de acesso demo",
+      copyEmailBtn: "Copiar Email",
+      copyPasswordBtn: "Copiar Senha",
+      githubFullBtn: "Ver no GitHub",
+      closeDetailsAria: "Fechar detalhes",
+      emailCopied: "E-mail demo copiado!",
+      passwordCopied: "Senha demo copiada!",
+    },
+    experienceSection: {
+      eyebrow: "Trajetória",
+      title: "Experiência & Formação",
+      experienceHeading: "Experiência Profissional",
+      educationHeading: "Formação Acadêmica",
+      languagesHeading: "Idiomas",
+    },
+    stackSection: {
+      eyebrow: "Habilidades Técnicas",
+      title: "Stack & Ferramentas",
+      subtitle:
+        "Tecnologias aplicadas no desenvolvimento front-end, APIs back-end e análise de indicadores em Business Intelligence.",
+      unitLabel: "itens",
+    },
+    footer: {
+      eyebrow: "Contato",
+      title: "Vamos conversar sobre o próximo projeto?",
+      description:
+        "Disponível para oportunidades de estágio, trainee e projetos em desenvolvimento front-end, full-stack ou análise de dados.",
+      sendEmail: "Enviar E-mail",
+      downloadCv: "Baixar Currículo",
+      emailLabel: "E-mail",
+      phoneLabel: "Telefone",
+      copyEmailAria: "Copiar e-mail",
+      copyPhoneAria: "Copiar telefone",
+      emailCopied: "E-mail copiado!",
+      phoneCopied: "Telefone copiado!",
+      location: "Recife, PE · Brasil",
+      rights: "© 2026 Leonardo Brahim",
+    },
+    techCategories: [
+      {
+        title: "Front-end & Mobile",
+        subtitle: "Interfaces responsivas, acessíveis e componentizadas",
+        accent: "red",
+        items: [
+          "React",
+          "TypeScript",
+          "JavaScript",
+          "React Native",
+          "Vite",
+          "Tailwind CSS",
+          "Zustand",
+          "Recharts",
+          "HTML5",
+          "CSS3",
+          "UX",
+        ],
+      },
+      {
+        title: "Back-end & Dados",
+        subtitle: "APIs REST, autenticação e modelagem relacional",
+        accent: "blue",
+        items: [
+          "Python",
+          "FastAPI",
+          "SQLAlchemy",
+          "Node.js",
+          "PostgreSQL",
+          "Supabase",
+          "APIs REST",
+          "JWT",
+        ],
+      },
+      {
+        title: "BI & Ferramentas",
+        subtitle: "Dashboards gerenciais, versionamento e prototipação",
+        accent: "amber",
+        items: [
+          "Power BI",
+          "QlikView",
+          "Análise de Dados",
+          "Dashboards",
+          "Git",
+          "GitHub",
+          "Figma",
+        ],
+      },
+    ],
+    education: [
+      {
+        school: "Universidade Federal de Pernambuco (UFPE)",
+        degree: "Ciência da Computação",
+        period: "2023 – Previsão: 2º sem. 2028",
+        details: "Graduação em andamento · Pernambuco, Brasil",
+      },
+      {
+        school: "Escola Técnica Estadual José Alencar",
+        degree: "Técnico em Administração",
+        period: "2018 – 2020",
+        details: "Formação técnica integrada · Pernambuco, Brasil",
+      },
+    ],
+    experience: [
+      {
+        company: "SEPLAG-PE — Secretaria de Planejamento e Gestão de Pernambuco",
+        location: "Pernambuco, Brasil",
+        role: "Estagiário de Desenvolvimento Web e Análise de Dados",
+        period: "2024 – 2026",
+        highlights: [
+          "Desenvolvi e mantive interfaces web front-end com React e TypeScript, com foco em responsividade, usabilidade e experiência do usuário (UX).",
+          "Estruturei e analisei bases de dados para construção de dashboards gerenciais em Power BI e QlikView.",
+          "Apoiei o monitoramento de indicadores e a tomada de decisão estratégica no âmbito da gestão pública estadual.",
+        ],
+      },
+      {
+        company: "UFPE — Universidade Federal de Pernambuco",
+        location: "Pernambuco, Brasil",
+        role: "Desenvolvedor Front-end (Projeto Acadêmico)",
+        period: "2023 – 2024",
+        highlights: [
+          "Desenvolvi um aplicativo mobile interativo em React Native para gerenciamento de atividades físicas voltado ao público infantil.",
+          "Criei uma biblioteca de componentes reutilizáveis, estruturei o gerenciamento de estado e integrei fluxos de navegação mobile.",
+        ],
+      },
+    ],
+    languages: [
+      { language: "Português", level: "Nativo" },
+      { language: "Inglês", level: "Avançado" },
+      { language: "Espanhol", level: "Básico" },
+    ],
+    projects: [
+      {
+        id: 1,
+        title: "Dengo 3D Lab",
+        subtitle: "E-commerce & ERP para Impressão 3D",
+        description:
+          "Plataforma de e-commerce e gestão (ERP/Painel Admin) para impressão 3D com gerenciamento de estado e roteamento customizado em Zustand, componentes acessíveis (Headless UI/shadcn) e gráficos interativos em Recharts.",
+        highlights: [
+          "Gerenciamento de estado global e roteamento customizado com Zustand",
+          "Componentes acessíveis com Headless UI / shadcn e visualização de métricas em Recharts",
+          "Painel administrativo integrado para fluxo de pedidos e catálogo 3D",
+        ],
+        tags: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Zustand", "Recharts"],
+        featured: true,
+        status: "Em dev",
+        link: "https://dengo3dlab.vercel.app/",
+        isPrivateRepo: true,
+        image: "/dengo3dlab.png",
+      },
+      {
+        id: 2,
+        title: "Study App",
+        subtitle: "Plataforma Full-stack de Organização Acadêmica",
+        description:
+          "Plataforma web full-stack para organizar semestres, disciplinas, tarefas, avaliações e sessões de estudo, com API REST em Python/FastAPI, SQLAlchemy, Alembic, autenticação JWT e dashboard de progresso em Recharts.",
+        highlights: [
+          "API REST estruturada em Python/FastAPI com SQLAlchemy e migrações via Alembic",
+          "Autenticação segura com JWT e persistência em banco PostgreSQL",
+          "Flashcards, quizzes e dashboard interativo de progresso em Recharts",
+        ],
+        tags: ["React", "TypeScript", "Vite", "FastAPI", "PostgreSQL", "JWT"],
+        featured: true,
+        link: "https://study-platform-wheat.vercel.app/",
+        github: "https://github.com/leonardobrahim/study-platform",
+        demoCredentials: {
+          email: "portfolio@teste.com",
+          password: "portfolio123",
+        },
+        image: "/study-app.png",
+      },
+      {
+        id: 3,
+        title: "Rabisco App",
+        subtitle: "Rastreador de Hábitos Gamificado",
+        description:
+          "Aplicativo de desenvolvimento pessoal com sistema de missões diárias e rastreamento de hábitos em tempo real, contando com autenticação, whitelist de acesso e persistência via Supabase.",
+        highlights: [
+          "Sistema de missões diárias e gamificação de hábitos",
+          "Autenticação e controle de rotas com banco em tempo real no Supabase",
+        ],
+        tags: ["React", "Tailwind CSS", "Supabase", "Gamificação"],
+        featured: false,
+        link: "https://rabisco-app.pages.dev/",
+        github: "https://github.com/leonardobrahim/rabisco-app",
+        demoCredentials: {
+          email: "teste@teste.com",
+          password: "teste123",
+        },
+        image: "/rabisco-app.png",
+      },
+      {
+        id: 4,
+        title: "Lumina Store",
+        subtitle: "E-commerce Moderno com Checkout Stripe",
+        description:
+          "Plataforma completa de vendas online com carrinho, fluxo de checkout integrado e painel administrativo, desenvolvida com foco em conversão e experiência do usuário.",
+        highlights: [
+          "Carrinho dinâmico, gerenciamento de estado e integração de pagamento com Stripe",
+          "Painel administrativo para gestão de catálogo",
+        ],
+        tags: ["React", "Node.js", "Stripe", "E-commerce"],
+        featured: false,
+        link: "https://lumina-store-mu.vercel.app/#/",
+        github: "https://github.com/leonardobrahim/lumina-store",
+        image: "/lumina-store.png",
+      },
+    ],
+  },
 
-export const EDUCATION_DATA: Education[] = [
-  {
-    school: "UFPE",
-    degree: "Graduação em Ciência da Computação",
-    period: "2023 – Cursando",
+  en: {
+    metaTitle: "Leonardo Brahim — Front-end Development & Data Analysis",
+    nav: {
+      about: "About",
+      projects: "Projects",
+      experience: "Experience",
+      stack: "Stack",
+      contact: "Contact",
+      cvButton: "Resume",
+      cvDownloadLabel: "Download Resume (PDF)",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
+    },
+    hero: {
+      headline: "Front-end Development & Data Analysis",
+      availability: "Tech Internship & Trainee · Recife, Brazil",
+      bio: "Computer Science undergraduate at UFPE (expected graduation: 2nd half of 2028) with 2 years of public-sector internship experience (SEPLAG-PE), working in front-end web development and Business Intelligence (Power BI & QlikView). Hands-on experience across web, mobile, and APIs bridging software engineering and data-driven decision-making.",
+      ctaProjects: "View Projects",
+      ctaCv: "Download CV",
+      copyEmailAria: "Copy email",
+      emailCopiedToast: "Email copied!",
+      widget: {
+        title: "Profile · Front-end & BI",
+        badge: "Recife, BR",
+        kpis: [
+          {
+            value: "2 yrs",
+            label: "SEPLAG-PE",
+            detail: "Front-end & BI",
+          },
+          {
+            value: "4",
+            label: "Web Projects",
+            detail: "React, APIs & UI",
+          },
+          {
+            value: "2028",
+            label: "UFPE · CS",
+            detail: "Expected grad.",
+          },
+          {
+            value: "Advanced",
+            label: "English",
+            detail: "PT Native · ES Basic",
+          },
+        ],
+        chartTitle: "Stack Distribution",
+        chartSubtitle: "Technologies by domain",
+        statusText: "Open to opportunities",
+        focusTag: "React · TS · Power BI",
+      },
+    },
+    projectsSection: {
+      eyebrow: "Selected Work",
+      title: "Featured Projects",
+      subtitle:
+        "Full-stack web applications, global state architectures, and interfaces focused on usability and data visualization.",
+      featuredBadge: "Featured",
+      accessButton: "Live Demo",
+      codeButton: "Code",
+      privateRepoLabel: "Private repo",
+      detailsButton: "Details",
+      highlightsTitle: "Technical highlights",
+      demoTitle: "Demo credentials",
+      copyEmailBtn: "Copy Email",
+      copyPasswordBtn: "Copy Password",
+      githubFullBtn: "View on GitHub",
+      closeDetailsAria: "Close details",
+      emailCopied: "Demo email copied!",
+      passwordCopied: "Demo password copied!",
+    },
+    experienceSection: {
+      eyebrow: "Background",
+      title: "Experience & Education",
+      experienceHeading: "Work Experience",
+      educationHeading: "Education",
+      languagesHeading: "Languages",
+    },
+    stackSection: {
+      eyebrow: "Technical Skills",
+      title: "Stack & Tools",
+      subtitle:
+        "Technologies applied across front-end engineering, back-end APIs, and Business Intelligence dashboards.",
+      unitLabel: "skills",
+    },
+    footer: {
+      eyebrow: "Contact",
+      title: "Let's talk about your next project?",
+      description:
+        "Available for internship, trainee, and project opportunities in front-end development, full-stack engineering, or data analysis.",
+      sendEmail: "Send Email",
+      downloadCv: "Download Resume",
+      emailLabel: "Email",
+      phoneLabel: "Phone",
+      copyEmailAria: "Copy email",
+      copyPhoneAria: "Copy phone",
+      emailCopied: "Email copied!",
+      phoneCopied: "Phone copied!",
+      location: "Recife, PE · Brazil",
+      rights: "© 2026 Leonardo Brahim",
+    },
+    techCategories: [
+      {
+        title: "Front-end & Mobile",
+        subtitle: "Responsive, accessible, component-driven interfaces",
+        accent: "red",
+        items: [
+          "React",
+          "TypeScript",
+          "JavaScript",
+          "React Native",
+          "Vite",
+          "Tailwind CSS",
+          "Zustand",
+          "Recharts",
+          "HTML5",
+          "CSS3",
+          "UX",
+        ],
+      },
+      {
+        title: "Back-end & Data",
+        subtitle: "REST APIs, authentication, and relational modeling",
+        accent: "blue",
+        items: [
+          "Python",
+          "FastAPI",
+          "SQLAlchemy",
+          "Node.js",
+          "PostgreSQL",
+          "Supabase",
+          "REST APIs",
+          "JWT",
+        ],
+      },
+      {
+        title: "BI & Tools",
+        subtitle: "Executive dashboards, version control, and prototyping",
+        accent: "amber",
+        items: [
+          "Power BI",
+          "QlikView",
+          "Data Analysis",
+          "Dashboards",
+          "Git",
+          "GitHub",
+          "Figma",
+        ],
+      },
+    ],
+    education: [
+      {
+        school: "Federal University of Pernambuco (UFPE)",
+        degree: "B.S. in Computer Science",
+        period: "2023 – Expected: 2028.2",
+        details: "Undergraduate degree in progress · Pernambuco, Brazil",
+      },
+      {
+        school: "Escola Técnica Estadual José Alencar",
+        degree: "Technical Degree in Business Administration",
+        period: "2018 – 2020",
+        details: "Technical high school program · Pernambuco, Brazil",
+      },
+    ],
+    experience: [
+      {
+        company: "SEPLAG-PE — Secretariat of Planning and Management of Pernambuco",
+        location: "Pernambuco, Brazil",
+        role: "Web Development & Data Analysis Intern",
+        period: "2024 – 2026",
+        highlights: [
+          "Built and maintained front-end web interfaces using React and TypeScript with focus on responsiveness, usability, and UX.",
+          "Structured and analyzed datasets to build executive dashboards in Power BI and QlikView.",
+          "Supported KPI monitoring and strategic decision-making across state-level public management.",
+        ],
+      },
+      {
+        company: "UFPE — Federal University of Pernambuco",
+        location: "Pernambuco, Brazil",
+        role: "Front-end Developer (Academic Project)",
+        period: "2023 – 2024",
+        highlights: [
+          "Developed an interactive mobile application in React Native to manage physical activities for children.",
+          "Built a reusable component library, structured state management, and integrated mobile navigation flows.",
+        ],
+      },
+    ],
+    languages: [
+      { language: "Portuguese", level: "Native" },
+      { language: "English", level: "Advanced" },
+      { language: "Spanish", level: "Basic" },
+    ],
+    projects: [
+      {
+        id: 1,
+        title: "Dengo 3D Lab",
+        subtitle: "3D Printing E-commerce & ERP Platform",
+        description:
+          "E-commerce and internal management (ERP/Admin Panel) platform for 3D printing featuring global state and custom routing in Zustand, accessible components (Headless UI/shadcn), and interactive Recharts analytics.",
+        highlights: [
+          "Global state management and custom routing powered by Zustand",
+          "Accessible UI components with Headless UI / shadcn and metrics in Recharts",
+          "Integrated admin dashboard for order workflows and 3D catalog management",
+        ],
+        tags: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Zustand", "Recharts"],
+        featured: true,
+        status: "In dev",
+        link: "https://dengo3dlab.vercel.app/",
+        isPrivateRepo: true,
+        image: "/dengo3dlab.png",
+      },
+      {
+        id: 2,
+        title: "Study App",
+        subtitle: "Full-stack Academic Organization Platform",
+        description:
+          "Full-stack web platform to organize semesters, courses, tasks, exams, and study sessions, built with a Python/FastAPI REST API, SQLAlchemy, Alembic, JWT authentication, and a Recharts progress dashboard.",
+        highlights: [
+          "REST API built in Python/FastAPI with SQLAlchemy ORM and Alembic migrations",
+          "Secure JWT authentication backed by PostgreSQL persistence",
+          "Flashcards, quizzes, and interactive progress analytics in Recharts",
+        ],
+        tags: ["React", "TypeScript", "Vite", "FastAPI", "PostgreSQL", "JWT"],
+        featured: true,
+        link: "https://study-platform-wheat.vercel.app/",
+        github: "https://github.com/leonardobrahim/study-platform",
+        demoCredentials: {
+          email: "portfolio@teste.com",
+          password: "portfolio123",
+        },
+        image: "/study-app.png",
+      },
+      {
+        id: 3,
+        title: "Rabisco App",
+        subtitle: "Gamified Habit Tracker",
+        description:
+          "Personal growth web app featuring daily quests and real-time habit tracking, complete with authentication, access whitelist, and real-time database persistence on Supabase.",
+        highlights: [
+          "Daily mission system and habit gamification mechanics",
+          "Authentication and route protection backed by Supabase real-time DB",
+        ],
+        tags: ["React", "Tailwind CSS", "Supabase", "Gamification"],
+        featured: false,
+        link: "https://rabisco-app.pages.dev/",
+        github: "https://github.com/leonardobrahim/rabisco-app",
+        demoCredentials: {
+          email: "teste@teste.com",
+          password: "teste123",
+        },
+        image: "/rabisco-app.png",
+      },
+      {
+        id: 4,
+        title: "Lumina Store",
+        subtitle: "Modern E-commerce with Stripe Checkout",
+        description:
+          "Complete online store with shopping cart, integrated checkout flow, and admin dashboard, designed around conversion and smooth user experience.",
+        highlights: [
+          "Dynamic cart, state management, and Stripe payment integration",
+          "Admin dashboard for product catalog management",
+        ],
+        tags: ["React", "Node.js", "Stripe", "E-commerce"],
+        featured: false,
+        link: "https://lumina-store-mu.vercel.app/#/",
+        github: "https://github.com/leonardobrahim/lumina-store",
+        image: "/lumina-store.png",
+      },
+    ],
   },
-  {
-    school: "ETE José Alencar Gomes da Silva",
-    degree: "Técnico em Administração",
-    period: "2018 - 2020",
-  },
-  {
-    school: "Programa Ganhe o Mundo",
-    degree: "Inglês Intermediário 2",
-    period: "Ago 2019 – Ago 2020",
-  },
-  {
-    school: "Curso Livre",
-    degree: "Design Gráfico | Nível A",
-    period: "Fev 2018 – Out 2019",
-  },
-];
-
-export const EXPERIENCE_DATA: Experience[] = [
-  {
-    company: "SEPLAG - Secretaria de Planejamento e Gestão de Pernambuco",
-    role: "Estagiário de Desenvolvimento de Software",
-    period: "Junho 2024 - Junho 2026",
-    description:
-      "Atuação como auxiliar de desenvolvimento de software (web e automação). No início do estágio, também atuei com ferramentas de BI como Power BI e QlikView para análise de dados.",
-  },
-  {
-    company: "Projeto de Desenvolvimento da UFPE",
-    role: "Desenvolvedor React Native",
-    period: "2023 - 2024",
-    description:
-      "Desenvolvimento de um aplicativo que auxilia no gerenciamento de atividades físicas para crianças usando React Native.",
-  },
-  {
-    company: "Miniempresa EAÍ",
-    role: "Diretor de Marketing",
-    period: "2019",
-    description:
-      "Gerenciamento do Marketing da miniempresa, incluindo criação das mídias e gestão das redes sociais.",
-  },
-];
-
-export const LANGUAGES_DATA: Language[] = [
-  { language: "Português", level: "Nativo" },
-  { language: "Inglês", level: "Avançado" },
-  { language: "Espanhol", level: "Básico" },
-];
-
-export const PROJECTS_DATA: Project[] = [
-  {
-    id: 1,
-    title: "Estúdio de Impressão dengo3Dlab",
-    description:
-      "Plataforma de vendas de produtos 3D e gerenciamento interno completo.\n*EM DESENVOLVIMENTO*, funcionando com dados mockados.",
-    tags: ["React", "Node.js", "E-commerce"],
-    color: "bg-blue-400",
-    size: "large",
-    link: "https://dengo3dlab.vercel.app/",
-    github: "https://github.com/leonardobrahim/dengo3dlab",
-    image: "/dengo3dlab.png",
-  },
-  {
-    id: 2,
-    title: "Study App - Aplicativo de Estudos",
-    description:
-      "Aplicativo de estudos com sistema de flashcards, quizzes e rastreamento de progresso.\nConta teste - Email: portfolio@teste.com - Senha: portfolio123",
-    tags: ["React", "Educação", "Em Dev"],
-    color: "bg-indigo-300",
-    size: "large",
-    link: "https://study-platform-wheat.vercel.app/",
-    github: "https://github.com/leonardobrahim/study-platform",
-    image: "/study-app.png",
-  },
-  {
-    id: 3,
-    title: "Rabisco App - Desenvolvimento Pessoal",
-    description:
-      "Aplicativo de autoaperfeiçoamento com sistema de missões diárias e rastreamento de hábitos.\n O site possui Whitelist. Email: teste@teste.com Senha: teste123",
-    tags: ["React", "Gamificação", "Design Mobile"],
-    color: "bg-white",
-    size: "large",
-    link: "https://rabisco-app.pages.dev/",
-    github: "https://github.com/leonardobrahim/rabisco-app",
-    image: "/rabisco-app.png",
-  },
-  {
-    id: 4,
-    title: "Lumina Store E-commerce",
-    description:
-      "Plataforma completa de vendas online com carrinho, checkout e painel administrativo.\nDesenvolvido com foco na experiência do usuário e conversão.",
-    tags: ["React", "Node.js", "Stripe"],
-    color: "bg-gray-300",
-    size: "large",
-    link: "https://lumina-store-mu.vercel.app/#/",
-    github: "https://github.com/leonardobrahim/lumina-store",
-    image: "/lumina-store.png",
-  },
-];
+};

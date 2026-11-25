@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="lb-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6363" />
+      <stop offset="100%" stop-color="#ff8a65" />
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="14" ry="14" fill="url(#lb-grad)" />
+  <text
+    x="50%"
+    y="53%"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+    font-size="27"
+    font-weight="700"
+    letter-spacing="-0.5"
+  >LB</text>
+</svg>

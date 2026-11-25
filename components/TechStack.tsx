@@ -1,60 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TECH_STACK } from '../constants';
+import { Layout, Database, BarChart3 } from 'lucide-react';
+import { LocalizedContent, TechCategory } from '../types';
 
-const TechStack: React.FC = () => {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
+interface TechStackProps {
+  categories: TechCategory[];
+  copy: LocalizedContent['stackSection'];
+}
 
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    show: { y: 0, opacity: 1 }
-  };
+const accentConfig = {
+  red: {
+    icon: <Layout className="w-4 h-4 text-[#ff6363]" />,
+    badge: 'bg-[#ff6363]/10 border-[#ff6363]/25',
+    dot: 'bg-[#ff6363]',
+  },
+  blue: {
+    icon: <Database className="w-4 h-4 text-[#56c2ff]" />,
+    badge: 'bg-[#56c2ff]/10 border-[#56c2ff]/25',
+    dot: 'bg-[#56c2ff]',
+  },
+  amber: {
+    icon: <BarChart3 className="w-4 h-4 text-amber-400" />,
+    badge: 'bg-amber-400/10 border-amber-400/25',
+    dot: 'bg-amber-400',
+  },
+};
 
+const TechStack: React.FC<TechStackProps> = ({ categories, copy }) => {
   return (
-    <section id="about" className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-white dark:bg-gray-800 border-4 border-black shadow-neo-lg rounded-2xl p-8 md:p-12 relative overflow-hidden">
-          
-          {/* Header */}
-          <div className="mb-10 text-center">
-            <h2 className="text-4xl font-black text-black dark:text-white mb-4 uppercase">
-              Tech Stack
+    <section id="stack" className="py-20 px-4">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+          <div>
+            <p className="text-xs font-mono uppercase tracking-widest text-[#ff6363] mb-2">
+              {copy.eyebrow}
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
+              {copy.title}
             </h2>
-            <div className="h-2 w-24 bg-neo-pink mx-auto border-2 border-black"></div>
           </div>
+          <p className="text-sm text-[#9c9c9d] max-w-md">{copy.subtitle}</p>
+        </div>
 
-          {/* Grid of Pills */}
-          <motion.div 
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-4"
-          >
-            {TECH_STACK.map((tech) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {categories.map((category, idx) => {
+            const style = accentConfig[category.accent];
+            return (
               <motion.div
-                key={tech.name}
-                variants={item}
-                whileHover={{ scale: 1.1, rotate: Math.random() * 4 - 2 }}
-                className={`${tech.color} px-6 py-3 rounded-full border-2 border-black shadow-neo-sm cursor-default flex items-center gap-2`}
+                key={category.title}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: idx * 0.06 }}
+                className="raycast-card raycast-card-hover rounded-xl p-6 flex flex-col justify-between gap-5"
               >
-                <tech.icon size={20} className="text-black" />
-                <span className="font-bold text-black">{tech.name}</span>
-              </motion.div>
-            ))}
-          </motion.div>
+                <div className="space-y-2">
+                  <div
+                    className={`w-9 h-9 rounded-lg border flex items-center justify-center ${style.badge}`}
+                  >
+                    {style.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-white pt-1">
+                    {category.title}
+                  </h3>
+                  <p className="text-xs text-[#9c9c9d] leading-relaxed">
+                    {category.subtitle}
+                  </p>
+                </div>
 
-          {/* Decorative Corner */}
-          <div className="absolute -top-6 -right-6 w-24 h-24 bg-cartoon-blue border-4 border-black rounded-full"></div>
-          <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-neo-yellow border-4 border-black rounded-full"></div>
+                <div className="flex flex-wrap gap-1.5">
+                  {category.items.map((tech) => (
+                    <span
+                      key={tech}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium text-[#cdcdcd] bg-white/[0.04] border border-white/[0.08] hover:border-white/[0.2] hover:text-white transition-colors"
+                    >
+                      <span
+                        className={`w-1 h-1 rounded-full ${style.dot} opacity-80`}
+                      />
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
