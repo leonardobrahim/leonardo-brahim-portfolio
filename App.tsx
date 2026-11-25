@@ -56,7 +56,7 @@ const App: React.FC = () => {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="min-h-screen relative bg-[#07080a] text-[#f4f4f6] font-sans">
+      <div className="min-h-screen relative isolate overflow-x-clip bg-[#07080a] text-[#f4f4f6] font-sans">
         <Background />
 
         <Navbar

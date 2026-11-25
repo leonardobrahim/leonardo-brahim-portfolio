@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ locale, onChangeLocale, copy }) => {
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
       <nav
         aria-label="Main navigation"
-        className="max-w-5xl mx-auto rounded-xl border border-white/[0.09] bg-[#0d0e11]/80 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)] px-4 py-2.5 flex items-center justify-between gap-4"
+        className="max-w-5xl mx-auto rounded-xl border border-white/[0.09] bg-[#0d0e11]/90 backdrop-blur-md shadow-[0_12px_32px_-8px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)] px-4 py-2.5 flex items-center justify-between gap-4"
       >
         {/* Brand */}
         <a

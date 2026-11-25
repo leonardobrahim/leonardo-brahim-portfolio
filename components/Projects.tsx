@@ -40,7 +40,7 @@ const ProjectCard: React.FC<{
         aria-label={`${copy.detailsButton}: ${project.title}`}
         className="relative aspect-[16/9] w-full overflow-hidden border-b border-white/[0.08] bg-[#0b0c0f] text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff6363]"
       >
-        <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/10">
+        <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 border border-white/10">
           <span className="w-2 h-2 rounded-full bg-[#ff6363]/80" />
           <span className="w-2 h-2 rounded-full bg-amber-400/80" />
           <span className="w-2 h-2 rounded-full bg-emerald-400/80" />
@@ -48,13 +48,13 @@ const ProjectCard: React.FC<{
 
         <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5">
           {project.featured && (
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ff6363]/20 border border-[#ff6363]/40 text-[#ffb4b4] text-[11px] font-medium backdrop-blur-md">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#2a1215]/90 border border-[#ff6363]/40 text-[#ffb4b4] text-[11px] font-medium">
               <Sparkles className="w-3 h-3" />
               {copy.featuredBadge}
             </span>
           )}
           {project.status && (
-            <span className="px-2.5 py-1 rounded-full bg-black/70 border border-white/15 text-[#cdcdcd] text-[11px] font-medium backdrop-blur-md">
+            <span className="px-2.5 py-1 rounded-full bg-black/80 border border-white/15 text-[#cdcdcd] text-[11px] font-medium">
               {project.status}
             </span>
           )}
@@ -64,6 +64,7 @@ const ProjectCard: React.FC<{
           src={project.image}
           alt={project.title}
           loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#07080a]/70 via-transparent to-transparent pointer-events-none" />

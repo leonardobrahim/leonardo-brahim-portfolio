@@ -138,13 +138,13 @@ const Hero: React.FC<HeroProps> = ({
           className="lg:col-span-5"
         >
           <div className="relative">
-            {/* Ambient coral + blue glow behind widget */}
+            {/* Ambient coral + blue glow behind widget (pure radial gradient, no GPU blur pass) */}
             <div
               aria-hidden="true"
-              className="absolute -inset-4 rounded-2xl blur-2xl opacity-60 pointer-events-none"
+              className="absolute -inset-6 rounded-3xl pointer-events-none"
               style={{
                 background:
-                  'radial-gradient(circle at 70% 20%, rgba(255,99,99,0.2), transparent 60%), radial-gradient(circle at 20% 85%, rgba(86,194,255,0.12), transparent 60%)',
+                  'radial-gradient(circle at 70% 20%, rgba(255,99,99,0.18), transparent 62%), radial-gradient(circle at 20% 85%, rgba(86,194,255,0.11), transparent 62%)',
               }}
             />
 

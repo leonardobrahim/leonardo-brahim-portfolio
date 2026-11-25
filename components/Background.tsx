@@ -4,35 +4,29 @@ const Background: React.FC = () => {
   return (
     <div
       aria-hidden="true"
-      className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#07080a]"
+      className="absolute inset-0 -z-10 overflow-hidden pointer-events-none bg-[#07080a]"
+      style={{
+        backgroundImage: [
+          'radial-gradient(ellipse 80% 520px at 50% 0%, rgba(255, 99, 99, 0.16) 0%, rgba(255, 126, 95, 0.05) 45%, transparent 75%)',
+          'radial-gradient(circle 420px at 88% 35%, rgba(86, 194, 255, 0.08) 0%, transparent 70%)',
+          'radial-gradient(circle 420px at 12% 80%, rgba(255, 99, 99, 0.08) 0%, transparent 70%)',
+        ].join(', '),
+      }}
     >
-      {/* Subtle hairline grid masked radially */}
-      <div className="absolute inset-0 raycast-grid-bg opacity-70" />
-
-      {/* Primary Raycast Red / Coral top ambient glow */}
+      {/* Subtle hairline grid confined to the top hero area without heavy CSS mask */}
       <div
-        className="absolute -top-48 left-1/2 -translate-x-1/2 w-[900px] h-[520px] rounded-full blur-[140px]"
+        className="absolute inset-x-0 top-0 h-[760px] opacity-55"
         style={{
-          background:
-            'radial-gradient(circle, rgba(255,99,99,0.16) 0%, rgba(255,126,95,0.06) 45%, rgba(7,8,10,0) 75%)',
+          backgroundImage:
+            'linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
         }}
       />
-
-      {/* Secondary cool accent glow */}
       <div
-        className="absolute top-[42%] -right-40 w-[520px] h-[520px] rounded-full blur-[140px]"
+        className="absolute inset-x-0 top-0 h-[760px]"
         style={{
           background:
-            'radial-gradient(circle, rgba(86,194,255,0.07) 0%, rgba(7,8,10,0) 70%)',
-        }}
-      />
-
-      {/* Bottom warm edge glow */}
-      <div
-        className="absolute -bottom-52 -left-32 w-[560px] h-[440px] rounded-full blur-[150px]"
-        style={{
-          background:
-            'radial-gradient(circle, rgba(255,99,99,0.08) 0%, rgba(7,8,10,0) 70%)',
+            'radial-gradient(ellipse 75% 85% at 50% 25%, transparent 35%, #07080a 100%)',
         }}
       />
     </div>

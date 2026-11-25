@@ -12,7 +12,7 @@ export const PERSONAL_SHARED: PersonalShared = {
 
 export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
   pt: {
-    metaTitle: "Leonardo Brahim — Desenvolvimento Front-end & Análise de Dados",
+    metaTitle: "Leonardo Brahim | Desenvolvimento Front-end & Análise de Dados",
     nav: {
       about: "Sobre",
       projects: "Projetos",
@@ -177,7 +177,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
     ],
     experience: [
       {
-        company: "SEPLAG-PE — Secretaria de Planejamento e Gestão de Pernambuco",
+        company: "SEPLAG-PE - Secretaria de Planejamento e Gestão de Pernambuco",
         location: "Pernambuco, Brasil",
         role: "Estagiário de Desenvolvimento Web e Análise de Dados",
         period: "2024 – 2026",
@@ -188,7 +188,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
         ],
       },
       {
-        company: "UFPE — Universidade Federal de Pernambuco",
+        company: "UFPE - Universidade Federal de Pernambuco",
         location: "Pernambuco, Brasil",
         role: "Desenvolvedor Front-end (Projeto Acadêmico)",
         period: "2023 – 2024",
@@ -283,7 +283,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
   },
 
   en: {
-    metaTitle: "Leonardo Brahim — Front-end Development & Data Analysis",
+    metaTitle: "Leonardo Brahim | Front-end Development & Data Analysis",
     nav: {
       about: "About",
       projects: "Projects",
@@ -448,7 +448,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
     ],
     experience: [
       {
-        company: "SEPLAG-PE — Secretariat of Planning and Management of Pernambuco",
+        company: "SEPLAG-PE - Secretariat of Planning and Management of Pernambuco",
         location: "Pernambuco, Brazil",
         role: "Web Development & Data Analysis Intern",
         period: "2024 – 2026",
@@ -459,7 +459,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
         ],
       },
       {
-        company: "UFPE — Federal University of Pernambuco",
+        company: "UFPE - Federal University of Pernambuco",
         location: "Pernambuco, Brazil",
         role: "Front-end Developer (Academic Project)",
         period: "2023 – 2024",
