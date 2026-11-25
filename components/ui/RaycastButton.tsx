@@ -1,7 +1,7 @@
 import React from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
 
-interface RaycastButtonProps extends HTMLMotionProps<'button'> {
+interface RaycastButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'sm' | 'md';
   children: React.ReactNode;
@@ -33,14 +33,13 @@ const RaycastButton: React.FC<RaycastButtonProps> = ({
   };
 
   return (
-    <motion.button
+    <button
       type={type}
-      whileTap={{ scale: 0.98 }}
       className={`${base} ${sizes[size]} ${variants[variant]} ${className}`}
       {...props}
     >
       {children}
-    </motion.button>
+    </button>
   );
 };
 

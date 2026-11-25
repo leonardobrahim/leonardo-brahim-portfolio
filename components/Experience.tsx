@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap, Globe } from 'lucide-react';
 import {
   Education,
@@ -7,6 +6,7 @@ import {
   Language,
   LocalizedContent,
 } from '../types';
+import Reveal from './ui/Reveal';
 
 interface ExperienceProps {
   experience: ExperienceType[];
@@ -44,38 +44,33 @@ const Experience: React.FC<ExperienceProps> = ({
             </div>
 
             <div className="space-y-4">
-              {experience.map((job) => (
-                <motion.div
-                  key={`${job.company}-${job.period}`}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3 }}
-                  className="raycast-card raycast-card-hover rounded-xl p-6 space-y-4"
-                >
-                  <div className="flex flex-wrap items-start justify-between gap-2">
-                    <div>
-                      <h3 className="text-lg font-semibold text-white">
-                        {job.role}
-                      </h3>
-                      <p className="text-sm text-[#cdcdcd] mt-0.5">
-                        {job.company}
-                      </p>
+              {experience.map((job, idx) => (
+                <Reveal key={`${job.company}-${job.period}`} delayMs={idx * 60}>
+                  <div className="raycast-card raycast-card-hover rounded-xl p-6 space-y-4">
+                    <div className="flex flex-wrap items-start justify-between gap-2">
+                      <div>
+                        <h3 className="text-lg font-semibold text-white">
+                          {job.role}
+                        </h3>
+                        <p className="text-sm text-[#cdcdcd] mt-0.5">
+                          {job.company}
+                        </p>
+                      </div>
+                      <span className="px-2.5 py-1 rounded-md text-xs font-mono text-[#ff6363] bg-[#ff6363]/10 border border-[#ff6363]/25 shrink-0">
+                        {job.period}
+                      </span>
                     </div>
-                    <span className="px-2.5 py-1 rounded-md text-xs font-mono text-[#ff6363] bg-[#ff6363]/10 border border-[#ff6363]/25 shrink-0">
-                      {job.period}
-                    </span>
-                  </div>
 
-                  <ul className="space-y-2 text-sm text-[#9c9c9d] leading-relaxed">
-                    {job.highlights.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2.5">
-                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-white/30 shrink-0" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
+                    <ul className="space-y-2 text-sm text-[#9c9c9d] leading-relaxed">
+                      {job.highlights.map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-2.5">
+                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-white/30 shrink-0" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -91,26 +86,21 @@ const Experience: React.FC<ExperienceProps> = ({
               </div>
 
               <div className="space-y-3">
-                {education.map((edu) => (
-                  <motion.div
-                    key={edu.degree}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3 }}
-                    className="raycast-card raycast-card-hover rounded-xl p-5 space-y-2"
-                  >
-                    <span className="inline-block px-2 py-0.5 rounded text-[11px] font-mono text-[#56c2ff] bg-[#56c2ff]/10 border border-[#56c2ff]/25">
-                      {edu.period}
-                    </span>
-                    <h3 className="text-base font-semibold text-white">
-                      {edu.degree}
-                    </h3>
-                    <p className="text-sm text-[#cdcdcd]">{edu.school}</p>
-                    {edu.details && (
-                      <p className="text-xs text-[#71717a]">{edu.details}</p>
-                    )}
-                  </motion.div>
+                {education.map((edu, idx) => (
+                  <Reveal key={edu.degree} delayMs={idx * 60}>
+                    <div className="raycast-card raycast-card-hover rounded-xl p-5 space-y-2">
+                      <span className="inline-block px-2 py-0.5 rounded text-[11px] font-mono text-[#56c2ff] bg-[#56c2ff]/10 border border-[#56c2ff]/25">
+                        {edu.period}
+                      </span>
+                      <h3 className="text-base font-semibold text-white">
+                        {edu.degree}
+                      </h3>
+                      <p className="text-sm text-[#cdcdcd]">{edu.school}</p>
+                      {edu.details && (
+                        <p className="text-xs text-[#71717a]">{edu.details}</p>
+                      )}
+                    </div>
+                  </Reveal>
                 ))}
               </div>
             </div>

@@ -3,7 +3,7 @@
 Este é o repositório do meu portfólio pessoal, que combina uma estética **Neo-Brutalista** vibrante com toques de **ilustração Cartoon**. O projeto foi construído para ser moderno e responsivo, destacando minha trajetória como desenvolvedor frontend.
 
 <div align="center">
-  <img width="1200" alt="Banner do Portfólio" src="public\banner-portfolio.png" />
+  <img width="1200" alt="Banner do Portfólio" src="docs/banner-portfolio.png" />
 </div>
 
 ## 🚀 Sobre o Projeto

@@ -1,7 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Layout, Database, BarChart3 } from 'lucide-react';
 import { LocalizedContent, TechCategory } from '../types';
+import Reveal from './ui/Reveal';
 
 interface TechStackProps {
   categories: TechCategory[];
@@ -46,42 +46,37 @@ const TechStack: React.FC<TechStackProps> = ({ categories, copy }) => {
           {categories.map((category, idx) => {
             const style = accentConfig[category.accent];
             return (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: idx * 0.06 }}
-                className="raycast-card raycast-card-hover rounded-xl p-6 flex flex-col justify-between gap-5"
-              >
-                <div className="space-y-2">
-                  <div
-                    className={`w-9 h-9 rounded-lg border flex items-center justify-center ${style.badge}`}
-                  >
-                    {style.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold text-white pt-1">
-                    {category.title}
-                  </h3>
-                  <p className="text-xs text-[#9c9c9d] leading-relaxed">
-                    {category.subtitle}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-1.5">
-                  {category.items.map((tech) => (
-                    <span
-                      key={tech}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium text-[#cdcdcd] bg-white/[0.04] border border-white/[0.08] hover:border-white/[0.2] hover:text-white transition-colors"
+              <Reveal key={category.title} delayMs={idx * 60} className="h-full">
+                <div className="raycast-card raycast-card-hover rounded-xl p-6 flex flex-col justify-between gap-5 h-full">
+                  <div className="space-y-2">
+                    <div
+                      className={`w-9 h-9 rounded-lg border flex items-center justify-center ${style.badge}`}
                     >
+                      {style.icon}
+                    </div>
+                    <h3 className="text-lg font-semibold text-white pt-1">
+                      {category.title}
+                    </h3>
+                    <p className="text-xs text-[#9c9c9d] leading-relaxed">
+                      {category.subtitle}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {category.items.map((tech) => (
                       <span
-                        className={`w-1 h-1 rounded-full ${style.dot} opacity-80`}
-                      />
-                      {tech}
-                    </span>
-                  ))}
+                        key={tech}
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium text-[#cdcdcd] bg-white/[0.04] border border-white/[0.08] hover:border-white/[0.2] hover:text-white transition-colors"
+                      >
+                        <span
+                          className={`w-1 h-1 rounded-full ${style.dot} opacity-80`}
+                        />
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
+              </Reveal>
             );
           })}
         </div>

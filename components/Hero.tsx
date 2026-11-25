@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import {
   ArrowRight,
   Download,
@@ -43,14 +42,9 @@ const Hero: React.FC<HeroProps> = ({
     >
       <div className="max-w-5xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         {/* Left: Core Positioning */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="lg:col-span-7 space-y-6"
-        >
+        <div className="animate-hero lg:col-span-7 space-y-6">
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-white/[0.1] bg-white/[0.04] backdrop-blur-md text-xs font-medium text-[#cdcdcd]">
+          <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-white/[0.1] bg-white/[0.04] text-xs font-medium text-[#cdcdcd]">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff6363] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff6363]" />
@@ -128,23 +122,26 @@ const Hero: React.FC<HeroProps> = ({
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right: Raycast-style Metrics & BI Widget */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.1, ease: 'easeOut' }}
-          className="lg:col-span-5"
-        >
+        <div className="animate-hero-delay lg:col-span-5">
           <div className="relative">
-            {/* Ambient coral + blue glow behind widget (pure radial gradient, no GPU blur pass) */}
+            {/* Soft diffused ambient glows using closest-side radial gradients (no hard box edges, no heavy GPU blur) */}
             <div
               aria-hidden="true"
-              className="absolute -inset-6 rounded-3xl pointer-events-none"
+              className="absolute -top-24 -right-24 w-[440px] h-[440px] pointer-events-none"
               style={{
                 background:
-                  'radial-gradient(circle at 70% 20%, rgba(255,99,99,0.18), transparent 62%), radial-gradient(circle at 20% 85%, rgba(86,194,255,0.11), transparent 62%)',
+                  'radial-gradient(closest-side, rgba(255,99,99,0.22) 0%, rgba(255,99,99,0.09) 42%, rgba(255,99,99,0.02) 72%, rgba(255,99,99,0) 100%)',
+              }}
+            />
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-24 -left-24 w-[380px] h-[380px] pointer-events-none"
+              style={{
+                background:
+                  'radial-gradient(closest-side, rgba(86,194,255,0.14) 0%, rgba(86,194,255,0.05) 45%, rgba(86,194,255,0.01) 74%, rgba(86,194,255,0) 100%)',
               }}
             />
 
@@ -208,11 +205,9 @@ const Hero: React.FC<HeroProps> = ({
                           </span>
                         </div>
                         <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ width: `${pct}%` }}
-                            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-                            className={`h-full rounded-full bg-gradient-to-r ${barColors[cat.accent]}`}
+                          <div
+                            style={{ width: `${pct}%` }}
+                            className={`h-full rounded-full bg-gradient-to-r ${barColors[cat.accent]} transition-all duration-700`}
                           />
                         </div>
                       </div>
@@ -233,7 +228,7 @@ const Hero: React.FC<HeroProps> = ({
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

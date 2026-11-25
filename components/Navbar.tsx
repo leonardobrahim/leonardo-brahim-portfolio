@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Menu, X, Download } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Locale, LocalizedContent } from '../types';
 import RaycastButton from './ui/RaycastButton';
 import curriculoPDF from '../src/assets/leonardo-brahim-curriculo.pdf';
@@ -108,41 +107,33 @@ const Navbar: React.FC<NavbarProps> = ({ locale, onChangeLocale, copy }) => {
       </nav>
 
       {/* Mobile Menu Drawer */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.15 }}
-            className="md:hidden max-w-5xl mx-auto mt-2 rounded-xl border border-white/[0.1] bg-[#101114]/95 backdrop-blur-2xl p-4 shadow-[0_24px_48px_rgba(0,0,0,0.8)] flex flex-col gap-1"
-          >
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="px-3 py-2.5 rounded-lg text-sm font-medium text-[#cdcdcd] hover:text-white hover:bg-white/[0.06] transition-colors"
-              >
-                {item.name}
-              </a>
-            ))}
-            <div className="pt-2 mt-2 border-t border-white/[0.08]">
-              <a
-                href={curriculoPDF}
-                download="Leonardo_Brahim_Curriculo.pdf"
-                onClick={() => setIsOpen(false)}
-                className="no-underline block"
-              >
-                <RaycastButton variant="primary" className="w-full justify-center">
-                  <Download className="w-4 h-4" />
-                  {copy.cvDownloadLabel}
-                </RaycastButton>
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isOpen && (
+        <div className="animate-modal md:hidden max-w-5xl mx-auto mt-2 rounded-xl border border-white/[0.1] bg-[#101114]/95 backdrop-blur-md p-4 shadow-[0_24px_48px_rgba(0,0,0,0.8)] flex flex-col gap-1">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className="px-3 py-2.5 rounded-lg text-sm font-medium text-[#cdcdcd] hover:text-white hover:bg-white/[0.06] transition-colors"
+            >
+              {item.name}
+            </a>
+          ))}
+          <div className="pt-2 mt-2 border-t border-white/[0.08]">
+            <a
+              href={curriculoPDF}
+              download="Leonardo_Brahim_Curriculo.pdf"
+              onClick={() => setIsOpen(false)}
+              className="no-underline block"
+            >
+              <RaycastButton variant="primary" className="w-full justify-center">
+                <Download className="w-4 h-4" />
+                {copy.cvDownloadLabel}
+              </RaycastButton>
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

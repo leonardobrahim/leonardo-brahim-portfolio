@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { AnimatePresence, MotionConfig, motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
@@ -55,68 +54,58 @@ const App: React.FC = () => {
   }, [toast]);
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="min-h-screen relative isolate overflow-x-clip bg-[#07080a] text-[#f4f4f6] font-sans">
-        <Background />
+    <div className="min-h-screen relative isolate overflow-x-clip bg-[#07080a] text-[#f4f4f6] font-sans">
+      <Background />
 
-        <Navbar
-          locale={locale}
-          onChangeLocale={setLocale}
-          copy={content.nav}
-        />
+      <Navbar
+        locale={locale}
+        onChangeLocale={setLocale}
+        copy={content.nav}
+      />
 
-        <main className="relative z-10">
-          <Hero
-            personal={PERSONAL_SHARED}
-            copy={content.hero}
-            techCategories={content.techCategories}
-            unitLabel={content.stackSection.unitLabel}
-            onCopyEmail={() =>
-              handleCopy(PERSONAL_SHARED.email, content.hero.emailCopiedToast)
-            }
-          />
-          <Projects
-            projects={content.projects}
-            copy={content.projectsSection}
-            onCopy={handleCopy}
-          />
-          <Experience
-            experience={content.experience}
-            education={content.education}
-            languages={content.languages}
-            copy={content.experienceSection}
-          />
-          <TechStack
-            categories={content.techCategories}
-            copy={content.stackSection}
-          />
-        </main>
-
-        <Footer
+      <main className="relative z-10">
+        <Hero
           personal={PERSONAL_SHARED}
-          copy={content.footer}
+          copy={content.hero}
+          techCategories={content.techCategories}
+          unitLabel={content.stackSection.unitLabel}
+          onCopyEmail={() =>
+            handleCopy(PERSONAL_SHARED.email, content.hero.emailCopiedToast)
+          }
+        />
+        <Projects
+          projects={content.projects}
+          copy={content.projectsSection}
           onCopy={handleCopy}
         />
+        <Experience
+          experience={content.experience}
+          education={content.education}
+          languages={content.languages}
+          copy={content.experienceSection}
+        />
+        <TechStack
+          categories={content.techCategories}
+          copy={content.stackSection}
+        />
+      </main>
 
-        {/* Toast notification */}
-        <AnimatePresence>
-          {toast && (
-            <motion.div
-              initial={{ opacity: 0, y: 16, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 12, scale: 0.96 }}
-              transition={{ duration: 0.16 }}
-              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[110] flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.14] bg-[#141519]/95 backdrop-blur-xl shadow-[0_16px_40px_rgba(0,0,0,0.8)] text-xs font-medium text-white"
-            >
-              <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                <Check className="w-3 h-3" />
-              </span>
-              <span>{toast}</span>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </MotionConfig>
+      <Footer
+        personal={PERSONAL_SHARED}
+        copy={content.footer}
+        onCopy={handleCopy}
+      />
+
+      {/* Toast notification */}
+      {toast && (
+        <div className="animate-toast fixed bottom-6 left-1/2 -translate-x-1/2 z-[110] flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.14] bg-[#141519]/95 shadow-[0_16px_40px_rgba(0,0,0,0.8)] text-xs font-medium text-white">
+          <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+            <Check className="w-3 h-3" />
+          </span>
+          <span>{toast}</span>
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -220,7 +220,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
         status: "Em dev",
         link: "https://dengo3dlab.vercel.app/",
         isPrivateRepo: true,
-        image: "/dengo3dlab.png",
+        image: "/dengo3dlab.webp",
       },
       {
         id: 2,
@@ -241,7 +241,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
           email: "portfolio@teste.com",
           password: "portfolio123",
         },
-        image: "/study-app.png",
+        image: "/study-app.webp",
       },
       {
         id: 3,
@@ -261,7 +261,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
           email: "teste@teste.com",
           password: "teste123",
         },
-        image: "/rabisco-app.png",
+        image: "/rabisco-app.webp",
       },
       {
         id: 4,
@@ -277,7 +277,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
         featured: false,
         link: "https://lumina-store-mu.vercel.app/#/",
         github: "https://github.com/leonardobrahim/lumina-store",
-        image: "/lumina-store.png",
+        image: "/lumina-store.webp",
       },
     ],
   },
@@ -491,7 +491,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
         status: "In dev",
         link: "https://dengo3dlab.vercel.app/",
         isPrivateRepo: true,
-        image: "/dengo3dlab.png",
+        image: "/dengo3dlab.webp",
       },
       {
         id: 2,
@@ -512,7 +512,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
           email: "portfolio@teste.com",
           password: "portfolio123",
         },
-        image: "/study-app.png",
+        image: "/study-app.webp",
       },
       {
         id: 3,
@@ -532,7 +532,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
           email: "teste@teste.com",
           password: "teste123",
         },
-        image: "/rabisco-app.png",
+        image: "/rabisco-app.webp",
       },
       {
         id: 4,
@@ -548,7 +548,7 @@ export const PORTFOLIO_CONTENT: Record<Locale, LocalizedContent> = {
         featured: false,
         link: "https://lumina-store-mu.vercel.app/#/",
         github: "https://github.com/leonardobrahim/lumina-store",
-        image: "/lumina-store.png",
+        image: "/lumina-store.webp",
       },
     ],
   },
